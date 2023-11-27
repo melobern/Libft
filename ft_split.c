@@ -6,7 +6,7 @@
 /*   By: mbernard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 09:47:37 by mbernard          #+#    #+#             */
-/*   Updated: 2023/11/20 17:17:10 by mbernard         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:56:53 by mbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	ft_len_tab(char const *s, char c)
 
 	len_tab = 0;
 	check = 0;
+	if (!s)
+		return (0);
 	while (*s)
 	{
 		if (*s != c)
@@ -54,9 +56,12 @@ static void	ft_free_tab(char **tab)
 	int	i;
 
 	i = 0;
+	if (!tab)
+		return ;
 	while (tab[i])
 	{
-		free(tab[i]);
+		if (tab[i])
+			free(tab[i]);
 		i++;
 	}
 	free(tab);
