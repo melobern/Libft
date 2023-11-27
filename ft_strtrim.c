@@ -17,11 +17,14 @@ static int	ft_is_set(char letter, char const *charset)
 	int	c;
 
 	c = 0;
-	while (charset[c])
+	if (charset)
 	{
-		if (letter == charset[c])
-			return (1);
-		c++;
+		while (charset[c])
+		{
+			if (letter == charset[c])
+				return (1);
+			c++;
+		}
 	}
 	return (0);
 }
@@ -49,6 +52,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	c;
 	size_t	d;
 
+	if (!s1)
+		return (NULL);
 	len = ft_len_trim(s1, set);
 	c = 0;
 	d = 0;
